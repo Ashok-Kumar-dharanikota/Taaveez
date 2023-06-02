@@ -4,14 +4,17 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-
 import com.itssuryansh.taaveez.databinding.ActivitySplashBinding
 
 
 class SplashActivity : AppCompatActivity() {
+
+
     private var binding: ActivitySplashBinding?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         binding =  ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding?.root)
@@ -21,10 +24,12 @@ class SplashActivity : AppCompatActivity() {
             Typeface.createFromAsset(assets,"arabian_onenighjtstand.ttf")
         binding?.tvNotes?.typeface = typeface
 
+//        fadingTextView.setTexts(strings)
+
         val thread: Thread = object : Thread() {
             override fun run() {
                 try {
-                    sleep(1000)
+                    sleep(3000)
                 }
                 catch (e: Exception) {
                     e.printStackTrace()
