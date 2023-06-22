@@ -58,6 +58,7 @@ dependencies {
     // Room components
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     implementation 'com.google.android.play:app-update-ktx:2.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 

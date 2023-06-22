@@ -100,7 +100,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:backgroundTint="?attr/item_topic_bottom_cardview_bg"
-               android:layout_margin="7dp"
+                android:layout_margin="7dp"
 
 
 
@@ -161,6 +161,8 @@
         </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.cardview.widget.CardView>
