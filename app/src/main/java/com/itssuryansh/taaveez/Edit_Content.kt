@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -65,8 +66,9 @@ class Edit_Content : AppCompatActivity() {
         val PoemDes: RichEditor = findViewById(R.id.etUpdatePoem)
         PoemDes.setEditorFontSize(20)
         PoemDes?.setPlaceholder(getString(R.string.write_here))
-        PoemDes?.setEditorBackgroundColor(backgroundColor)
-        PoemDes?.setEditorFontColor(textColor)
+        PoemDes?.setEditorBackgroundColor(Color.WHITE)
+        PoemDes?.setEditorFontColor(Color.BLACK)
+        PoemDes?.setTextColor(Color.BLACK)
         PoemDes.setPadding(10, 10, 10, 10)
         PoemDes.setVerticalScrollBarEnabled(true);
 
@@ -171,7 +173,7 @@ class Edit_Content : AppCompatActivity() {
         val c = Calendar.getInstance()
         val dateTime = c.time
         Log.e("Date: ", "" + dateTime)
-        val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())
+        val sdf = SimpleDateFormat("dd MM yyyy", Locale.getDefault())
         val date = sdf.format(dateTime)
         Log.e("Formatted Date: ", "" + date)
 

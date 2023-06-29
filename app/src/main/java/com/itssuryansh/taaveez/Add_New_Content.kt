@@ -30,6 +30,15 @@ import java.util.*
 
 class Add_New_Content : AppCompatActivity() {
 
+    private val images = arrayOf(
+        R.drawable.banner,
+        R.drawable.img,
+        R.drawable.intro1,
+        R.drawable.intro2,
+        R.drawable.no_connection
+    )
+
+
     private var binding: ActivityAddNewContentBinding? = null
     private val IMAGE_PICKER_REQUEST_CODE = 1001 // or any other unique value
 
@@ -68,12 +77,12 @@ class Add_New_Content : AppCompatActivity() {
 
         val PoemDes : RichEditor? = findViewById(R.id.idnotes)
         PoemDes?.setPlaceholder(getString(R.string.write_here))
-        PoemDes?.setEditorBackgroundColor(backgroundColor)
-        PoemDes?.setEditorFontColor(textColor)
+        PoemDes?.setEditorBackgroundColor(Color.WHITE)
+        PoemDes?.setEditorFontColor(Color.BLACK)
         PoemDes?.setEditorFontSize(20)
         PoemDes?.setPadding(10, 10, 10, 10)
         PoemDes?.isVerticalScrollBarEnabled = true
-        PoemDes?.setTextColor(Color.WHITE)
+        PoemDes?.setTextColor(Color.BLACK)
 
         binding?.btnBold?.setOnClickListener { PoemDes?.setBold() }
         binding?. btnItalic?.setOnClickListener { PoemDes?.setItalic() }
@@ -87,6 +96,11 @@ class Add_New_Content : AppCompatActivity() {
             PoemDes?.redo()
         }
 
+
+        val randomIndex = (0 until images.size).random()
+        val randomImage = images[randomIndex]
+
+        binding?.image?.setImageResource(randomImage)
 
 
         binding?.btnAddLink?.setOnClickListener{
@@ -110,6 +124,10 @@ class Add_New_Content : AppCompatActivity() {
         val maxLength = 21
         val filterArray = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
         binding?.idTopic?.filters = filterArray
+
+        val num = arrayOf(1, 2, 3, 4)   //implicit type declaration
+
+
 
         // Add a TextWatcher to the TextInputEditText view
         binding?.idTopic?.addTextChangedListener(object : TextWatcher {
@@ -139,7 +157,7 @@ class Add_New_Content : AppCompatActivity() {
             val c = Calendar.getInstance()
             val dateTime = c.time
             Log.e("Date: ", "" + dateTime)
-            val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())
+            val sdf = SimpleDateFormat("dd MM yyyy", Locale.getDefault())
             val date = sdf.format(dateTime)
             Log.e("Formatted Date: ", "" + date)
 

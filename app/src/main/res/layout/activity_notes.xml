@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/bg"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.itssuryansh.taaveez.Notes">
 
@@ -68,6 +68,36 @@
         </LinearLayout>
 </FrameLayout>
 
+    <RelativeLayout
+        android:id="@+id/ll_select_and_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flheading"
+        app:layout_constraintBottom_toTopOf="@+id/rvItemsPoem">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Selected items"
+            android:textSize="22dp" />
+
+        <ImageView
+            android:id="@+id/icon_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="30dp"
+            android:maxWidth="24dp"
+            android:maxHeight="24dp"
+            android:src="@drawable/ic_action_delete" />
+    </RelativeLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="1dp"
@@ -82,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@id/flheading"
+        app:layout_constraintTop_toBottomOf="@id/ll_select_and_delete"
         app:layout_constraintVertical_bias="0.0"
         tools:visibility="visible" />
 
@@ -99,7 +129,7 @@
         android:gravity="center_vertical"
 
 
-        >
+        tools:ignore="NotSibling">
 
 
 

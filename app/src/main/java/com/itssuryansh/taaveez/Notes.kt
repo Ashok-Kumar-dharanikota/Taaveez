@@ -66,6 +66,10 @@ class Notes : AppCompatActivity() {
 
         }
 
+        binding?.iconDelete?.setOnClickListener {
+
+        }
+
 
         val NotesDao = (application as NotesApp).db.NotesDao()
         binding?.idFABAdd?.setOnClickListener {
@@ -191,18 +195,15 @@ class Notes : AppCompatActivity() {
         if (NotesList.isNotEmpty()) {
             val itemAdapter = itemAdapter(
                 NotesList,
-                { updateId ->
-                    updateRecordDialog(updateId, NotesDao)
-                },
-                { deleteId ->
-                    deleteRecordAlertDialog(deleteId, NotesDao)
-                },
                 { OpenId ->
                     openNotes(OpenId, NotesDao)
                 },
                 { ShareId ->
                     ShareNotes(ShareId, NotesDao)
                 },
+                { CardId ->
+                    deleteRecordAlertDialog(CardId, NotesDao)
+                }
             )
 
             binding?.rvItemsPoem?.layoutManager = LinearLayoutManager(this)
@@ -366,7 +367,7 @@ class Notes : AppCompatActivity() {
 
 
 
-        // edit text  - topic lenght size limit
+        // edit text  - topic length size limit
         val maxLength = 21
         val filterArray = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
         binding?.etPoemTopic?.filters = filterArray
@@ -403,7 +404,7 @@ class Notes : AppCompatActivity() {
             val c = Calendar.getInstance()
             val dateTime = c.time
             Log.e("Date: ", "" + dateTime)
-            val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault())
+            val sdf = SimpleDateFormat("dd MM yyyy", Locale.getDefault())
             val date = sdf.format(dateTime)
             Log.e("Formatted Date: ", "" + date)
 
